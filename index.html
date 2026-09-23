@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myanmar Auto Subtitle</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      margin-top: 15px;
+    }
+
+    video {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🇲🇲 Myanmar Auto Subtitle</h2>
+
+  <p>Video ရွေးပါ</p>
+
+  <input type="file" id="videoInput" accept="video/*">
+
+  <video id="video" controls style="display:none;"></video>
+
+  <button onclick="startSubtitle()">
+    Auto Subtitle စမယ်
+  </button>
+
+  <p id="status"></p>
+</div>
+
+<script>
+const input = document.getElementById("videoInput");
+const video = document.getElementById("video");
+const status = document.getElementById("status");
+
+input.addEventListener("change", function () {
+  const file = input.files[0];
+
+  if (file) {
+    video.src = URL.createObjectURL(file);
+    video.style.display = "block";
+    status.innerText = "Video ရွေးပြီးပါပြီ။";
+  }
+});
+
+function startSubtitle() {
+  status.innerText =
+    "မြန်မာအသံကို စာတန်းအဖြစ် ပြောင်းနေပါတယ်...";
+}
+</script>
+
+</body>
+</html>
